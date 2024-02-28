@@ -47,6 +47,6 @@ public class Warmup {
      * @return The word that is first in alphabet column
      */
     public String firstWord(String wordA, String wordB) {
-        return null;
+        return "";
     }
 }

@@ -10,7 +10,9 @@ public class Advanced {
 
      */
     public String wordCensor(String sentence, String word, String newWord){
-        return "";
+        int flag = sentence.indexOf(word);
+        String out = sentence.substring(0, flag-1);
+        return (new String(out +" "+newWord));
     }
 
     /**
