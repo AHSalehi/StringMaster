@@ -46,7 +46,66 @@ public class Warmup {
      * @param wordB --> second word
      * @return The word that is first in alphabet column
      */
+
+    public char toLowerCase(char chr)
+    {
+        return (char)((int)chr + 32);
+    }
+
+    public int ascii(char chr)
+    {
+        return (int)chr;
+    }
+    public boolean equal(char chr1, char chr2)
+    {
+        int asc_1 = ascii(chr1);
+        int asc_2 = ascii(chr2);
+        if(asc_1 <= 90 && asc_1 >= 65){
+            chr1 = toLowerCase(chr1);
+            asc_1 = ascii(chr1);
+        }
+        else if(asc_2 <= 90 && asc_2 >= 65){
+            chr2 = toLowerCase(chr2);
+            asc_2 = ascii(chr2);
+        }
+        return asc_1 == asc_2;
+    }
+    public boolean compare(char chr1, char chr2)
+    {
+        int asc_1 = ascii(chr1);
+        int asc_2 = ascii(chr2);
+        if(asc_1 <= 90 && asc_1 >= 65){
+            chr1 = toLowerCase(chr1);
+            asc_1 = ascii(chr1);
+        }
+        else if(asc_2 <= 90 && asc_2 >= 65){
+            chr2 = toLowerCase(chr2);
+            asc_2 = ascii(chr2);
+        }
+        // true if chr1 < chr2
+        //false if chr1 > chr2
+        return asc_1 < asc_2;
+        
+    }
+
     public String firstWord(String wordA, String wordB) {
+        int i = 0;
+        int l = (wordA.length() <= wordB.length())?wordA.length():wordB.length();
+        while(i < l)
+        {
+            if(equal(wordA.charAt(i), wordB.charAt(i)))
+            {
+                i++;
+            }
+            else{
+                if(compare(wordA.charAt(i), wordB.charAt(i)))
+                {
+                    return wordA;
+                }
+                else
+                    return wordB;
+            }
+        }
         return "";
     }
 }

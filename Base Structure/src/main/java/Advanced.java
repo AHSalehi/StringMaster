@@ -48,8 +48,27 @@ public class Advanced {
      * @param word This input could have Consecutive repeated letters or not
      * @return if word contains Consecutive repeated letters, one of the repeated letters should be omitted
      */
+    public int finalIndex(String str)
+    {
+        return str.length() - 1;
+    }
     public String doubleChar(String word) {
-        return null;
+        String out = "";
+        out += word.charAt(0);
+        int i = 1;
+        
+        while(i < word.length())
+        {
+            if(word.charAt(i) != out.charAt(finalIndex(out)))
+            {
+                out += word.charAt(i);
+                i++;
+            }
+            else{
+                i++;
+            }
+        }
+        return out;
     }
 }
 
